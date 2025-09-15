@@ -20,7 +20,7 @@
                 <li><a href="#">Switches</a></li>
                 <li><a href="#">Accessories</a></li>
             </ul>
-            <a href="#" class="cart-icon">Cart (0)</a>
+            <a href="#" class="cart-icon" id="checkout-trigger">Checkout</a>
         </nav>
     </header>
 
@@ -68,6 +68,60 @@
         </section>
     </main>
 
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Checkout</h2>
+
+            <div class="progress-bar">
+                <div class="step-indicator active" data-step="1">1. Alamat</div>
+                <div class="step-indicator" data-step="2">2. Pembayaran</div>
+                <div class="step-indicator" data-step="3">3. Konfirmasi</div>
+            </div>
+
+            <div class="checkout-steps">
+                <div class="step active" id="step-1">
+                    <h3>Alamat Pengiriman</h3>
+                    <form class="checkout-form">
+                        <input type="text" placeholder="Nama Lengkap" required>
+                        <input type="text" placeholder="Alamat Jalan" required>
+                        <input type="text" placeholder="Kota" required>
+                        <input type="text" placeholder="Kode Pos" required>
+                        <input type="tel" placeholder="Nomor Telepon" required>
+                    </form>
+                    <button class="next-btn">Lanjut ke Pembayaran &rarr;</button>
+                </div>
+
+                <div class="step" id="step-2">
+                    <h3>Pilih Metode Pembayaran</h3>
+                    <div class="payment-options">
+                        <label><input type="radio" name="payment" value="va"> Virtual Account (BCA, Mandiri, BRI)</label>
+                        <label><input type="radio" name="payment" value="qris"> E-Wallet / QRIS (GoPay, OVO, Dana)</label>
+                        <label><input type="radio" name="payment" value="cc"> Kartu Kredit / Debit</label>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="prev-btn">&larr; Kembali</button>
+                        <button class="next-btn">Lanjut ke Konfirmasi &rarr;</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step-3">
+                    <h3>Konfirmasi Pesanan Anda</h3>
+                    <div class="order-summary">
+                        <h4>Ringkasan:</h4>
+                        <p>HannKey Pro 75% <span>Rp 2.500.000</span></p>
+                        <p>Ongkos Kirim <span>Rp 50.000</span></p>
+                        <hr>
+                        <p class="total"><strong>Total Bayar</strong> <span><strong>Rp 2.550.000</strong></span></p>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="prev-btn">&larr; Kembali</button>
+                        <button class="confirm-btn">Bayar Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
         <p>&copy; 2025 HannKey. All Rights Reserved.</p>
     </footer>
