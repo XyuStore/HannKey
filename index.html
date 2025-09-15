@@ -13,14 +13,16 @@
 
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">HannKey</a>
+            <a href="#" class="logo logo-animated">HannKey</a>
             <ul class="nav-links">
                 <li><a href="#">Keyboards</a></li>
                 <li><a href="#">Keycaps</a></li>
                 <li><a href="#">Switches</a></li>
                 <li><a href="#">Accessories</a></li>
             </ul>
-            <a href="#" class="cart-icon" id="checkout-trigger">Checkout</a>
+            <a href="#" class="cart-icon" id="cart-toggle">
+                Cart (<span id="cart-count">0</span>)
+            </a>
         </nav>
     </header>
 
@@ -36,28 +38,28 @@
         <section class="product-section" id="products">
             <h2>Featured Products</h2>
             <div class="product-grid">
-                <div class="product-card">
+                <div class="product-card" data-id="1" data-name="HannKey Pro 75%" data-price="2500000" data-image="https://via.placeholder.com/100x80/1a1a1a/ffffff?text=HK+Pro">
                     <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=HannKey+Pro" alt="HannKey Pro Keyboard">
                     <h3>HannKey Pro 75%</h3>
                     <p class="product-category">Keyboard Kit</p>
                     <p class="product-price">Rp 2.500.000</p>
                     <button class="add-to-cart-btn">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-id="2" data-name="GMK Serenity" data-price="1800000" data-image="https://via.placeholder.com/100x80/1a1a1a/ffffff?text=GMK">
                     <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=GMK+Serenity" alt="GMK Serenity Keycaps">
                     <h3>GMK Serenity</h3>
                     <p class="product-category">Keycap Set</p>
                     <p class="product-price">Rp 1.800.000</p>
                     <button class="add-to-cart-btn">Add to Cart</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-id="3" data-name="Gateron Oil King" data-price="650000" data-image="https://via.placeholder.com/100x80/1a1a1a/ffffff?text=Gateron">
                     <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=Gateron+Oil+King" alt="Gateron Oil King Switches">
                     <h3>Gateron Oil King</h3>
                     <p class="product-category">Switches (70x)</p>
                     <p class="product-price">Rp 650.000</p>
                     <button class="add-to-cart-btn">Add to Cart</button>
                 </div>
-                 <div class="product-card">
+                 <div class="product-card" data-id="4" data-name="Koi Artisan" data-price="850000" data-image="https://via.placeholder.com/100x80/1a1a1a/ffffff?text=Artisan">
                     <img src="https://via.placeholder.com/300x200/1a1a1a/ffffff?text=Artisan+Keycap" alt="Artisan Keycap">
                     <h3>Koi Artisan</h3>
                     <p class="product-category">Artisan Keycap</p>
@@ -68,60 +70,56 @@
         </section>
     </main>
 
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="close-cart-btn" class="close-cart-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            </div>
+        <div class="cart-footer">
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">Rp 0</span>
+            </div>
+            <button id="cart-checkout-btn" class="cart-checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
     <div id="checkout-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Checkout</h2>
-
             <div class="progress-bar">
                 <div class="step-indicator active" data-step="1">1. Alamat</div>
                 <div class="step-indicator" data-step="2">2. Pembayaran</div>
                 <div class="step-indicator" data-step="3">3. Konfirmasi</div>
             </div>
-
             <div class="checkout-steps">
                 <div class="step active" id="step-1">
                     <h3>Alamat Pengiriman</h3>
                     <form class="checkout-form">
-                        <input type="text" placeholder="Nama Lengkap" required>
-                        <input type="text" placeholder="Alamat Jalan" required>
-                        <input type="text" placeholder="Kota" required>
-                        <input type="text" placeholder="Kode Pos" required>
-                        <input type="tel" placeholder="Nomor Telepon" required>
+                        <input type="text" placeholder="Nama Lengkap" required><input type="text" placeholder="Alamat Jalan" required><input type="text" placeholder="Kota" required><input type="text" placeholder="Kode Pos" required><input type="tel" placeholder="Nomor Telepon" required>
                     </form>
                     <button class="next-btn">Lanjut ke Pembayaran &rarr;</button>
                 </div>
-
                 <div class="step" id="step-2">
                     <h3>Pilih Metode Pembayaran</h3>
                     <div class="payment-options">
-                        <label><input type="radio" name="payment" value="va"> Virtual Account (BCA, Mandiri, BRI)</label>
-                        <label><input type="radio" name="payment" value="qris"> E-Wallet / QRIS (GoPay, OVO, Dana)</label>
-                        <label><input type="radio" name="payment" value="cc"> Kartu Kredit / Debit</label>
+                        <label><input type="radio" name="payment" value="va"> Virtual Account</label><label><input type="radio" name="payment" value="qris"> E-Wallet / QRIS</label><label><input type="radio" name="payment" value="cc"> Kartu Kredit / Debit</label>
                     </div>
-                    <div class="nav-buttons">
-                        <button class="prev-btn">&larr; Kembali</button>
-                        <button class="next-btn">Lanjut ke Konfirmasi &rarr;</button>
-                    </div>
+                    <div class="nav-buttons"><button class="prev-btn">&larr; Kembali</button><button class="next-btn">Lanjut ke Konfirmasi &rarr;</button></div>
                 </div>
-
                 <div class="step" id="step-3">
                     <h3>Konfirmasi Pesanan Anda</h3>
-                    <div class="order-summary">
-                        <h4>Ringkasan:</h4>
-                        <p>HannKey Pro 75% <span>Rp 2.500.000</span></p>
-                        <p>Ongkos Kirim <span>Rp 50.000</span></p>
-                        <hr>
-                        <p class="total"><strong>Total Bayar</strong> <span><strong>Rp 2.550.000</strong></span></p>
-                    </div>
-                    <div class="nav-buttons">
-                        <button class="prev-btn">&larr; Kembali</button>
-                        <button class="confirm-btn">Bayar Sekarang</button>
-                    </div>
+                    <div class="order-summary" id="final-order-summary">
+                        </div>
+                    <div class="nav-buttons"><button class="prev-btn">&larr; Kembali</button><button class="confirm-btn">Bayar Sekarang</button></div>
                 </div>
             </div>
         </div>
     </div>
+
     <footer>
         <p>&copy; 2025 HannKey. All Rights Reserved.</p>
     </footer>
