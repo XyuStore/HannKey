@@ -12,13 +12,12 @@
 
 /* Reset Dasar & Pengaturan Font */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--body-font); line-height: 1.6; }
 
 /* Navigasi & Logo Animasi */
 .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background-color: rgba(30, 30, 30, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; width: 100%; z-index: 1000; }
 .logo { font-family: var(--header-font); font-size: 1.8rem; font-weight: 700; text-decoration: none; }
-
-/* === EFEK ANIMASI TEKS LOGO === */
 .logo-animated {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
     background-size: 200% auto;
@@ -27,37 +26,41 @@ body { background-color: var(--bg-color); color: var(--text-color); font-family:
     -webkit-text-fill-color: transparent;
     animation: textShine 5s linear infinite;
 }
-@keyframes textShine {
-    from { background-position: 200% center; }
-    to { background-position: 0% center; }
-}
-/* =============================== */
-
+@keyframes textShine { from { background-position: 200% center; } to { background-position: 0% center; } }
 .nav-links { display: flex; list-style: none; }
 .nav-links li { padding: 0 1rem; }
 .nav-links a, .cart-icon { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
 .nav-links a:hover, .cart-icon:hover { color: var(--primary-color); }
 
-/* Konten Utama (Hero & Produk) */
-.hero { height: 70vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 0 5%; background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://via.placeholder.com/1920x1080/000000/cccccc?text=Keyboard+Banner') no-repeat center center/cover; }
-.hero-content h1 { font-family: var(--header-font); font-size: 3rem; margin-bottom: 1rem; color: #ffffff; }
-.hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; }
-.cta-button { background-color: var(--primary-color); color: #000; padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: background-color 0.3s ease; }
-.cta-button:hover { background-color: var(--secondary-color); }
-.product-section { padding: 4rem 5%; text-align: center; }
-.product-section h2 { font-family: var(--header-font); font-size: 2.5rem; margin-bottom: 2rem; }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-.product-card { background-color: var(--surface-color); border-radius: 8px; overflow: hidden; text-align: left; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
-.product-card img { width: 100%; height: auto; display: block; }
-.product-card h3 { font-family: var(--header-font); font-size: 1.2rem; margin: 1rem 1rem 0.25rem 1rem; }
-.product-card .product-category { font-size: 0.8rem; color: #aaa; margin: 0 1rem; }
-.product-card .product-price { font-size: 1.1rem; font-weight: 700; color: var(--secondary-color); margin: 0.5rem 1rem; }
-.add-to-cart-btn { display: block; width: calc(100% - 2rem); margin: 1rem; padding: 10px; background-color: var(--primary-variant-color); color: var(--text-color); border: none; border-radius: 5px; cursor: pointer; font-weight: 700; transition: background-color 0.3s ease; }
-.add-to-cart-btn:hover { background-color: var(--primary-color); color: #000; }
-footer { text-align: center; padding: 2rem; margin-top: 2rem; background-color: var(--surface-color); }
+/* Konten Utama (Hero & Produk) yang diperbarui */
+.hero { min-height: 90vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 0 5%; background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://via.placeholder.com/1920x1080/000000/cccccc?text=Keyboard+Banner') no-repeat center center/cover; }
+.hero-content h1 { font-family: var(--header-font); font-size: 3.5rem; margin-bottom: 1rem; color: #ffffff; line-height: 1.2; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 600px; color: #b0b0b0; }
+.cta-button { background-color: var(--primary-color); color: #000; padding: 14px 28px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: transform 0.3s ease, background-color 0.3s ease; }
+.cta-button:hover { background-color: var(--secondary-color); transform: scale(1.05); }
 
-/* === STYLE UNTUK SIDEBAR KERANJANG === */
+.product-section { padding: 5rem 5%; text-align: center; }
+.product-section h2 { font-family: var(--header-font); font-size: 2.8rem; margin-bottom: 3rem; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+
+.product-card { background-color: var(--surface-color); border-radius: 12px; text-align: left; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.product-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+.product-card .image-container { overflow: hidden; border-radius: 12px 12px 0 0; }
+.product-card img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+.product-card:hover img { transform: scale(1.1); }
+.product-card .product-info { padding: 1.5rem; }
+.product-card h3 { font-family: var(--header-font); font-size: 1.3rem; margin-bottom: 0.5rem; }
+.product-card .product-category { font-size: 0.9rem; color: #aaa; margin-bottom: 1rem; }
+.product-card .product-price { font-size: 1.2rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 1.5rem; }
+.add-to-cart-btn { display: block; width: 100%; padding: 12px; background-color: var(--primary-variant-color); color: var(--text-color); border: none; border-radius: 8px; cursor: pointer; font-weight: 700; transition: background-color 0.3s ease, transform 0.2s ease; }
+.add-to-cart-btn:hover { background-color: var(--primary-color); color: #000; }
+.add-to-cart-btn:active { transform: scale(0.95); }
+
+/* Gaya Animasi Scroll */
+.hidden { opacity: 0; filter: blur(5px); transform: translateY(20px); transition: all 1s; }
+.show { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+/* STYLE UNTUK SIDEBAR KERANJANG */
 .cart-sidebar { position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100%; background-color: var(--bg-color); border-left: 1px solid #333; z-index: 2001; transform: translateX(100%); transition: transform 0.4s ease-in-out; display: flex; flex-direction: column; }
 .cart-sidebar.open { transform: translateX(0); }
 .cart-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #333; }
@@ -78,10 +81,8 @@ footer { text-align: center; padding: 2rem; margin-top: 2rem; background-color: 
 .cart-checkout-btn { display: block; width: 100%; padding: 12px; background-color: var(--primary-color); color: #000; border: none; border-radius: 5px; font-weight: bold; text-align: center; cursor: pointer; transition: background-color 0.3s; }
 .cart-checkout-btn:hover { background-color: var(--secondary-color); }
 .cart-items-empty { text-align: center; padding-top: 5rem; color: #777; }
-/* ======================================= */
 
-
-/* === MODAL CHECKOUT STYLES === */
+/* MODAL CHECKOUT STYLES */
 .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); }
 .modal-content { background-color: var(--surface-color); margin: 10% auto; padding: 2rem; border: 1px solid #333; width: 90%; max-width: 600px; border-radius: 10px; position: relative; animation: slideDown 0.5s ease-out; }
 @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
@@ -106,9 +107,10 @@ footer { text-align: center; padding: 2rem; margin-top: 2rem; background-color: 
 .prev-btn:hover { background-color: #555; }
 .order-summary p { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
 .order-summary .total { font-size: 1.2rem; margin-top: 1rem; }
-/* =============================== */
 
+footer { text-align: center; padding: 2rem; margin-top: 2rem; background-color: var(--surface-color); }
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .hero-content h1 { font-size: 2rem; }
-}
+    .hero-content h1 { font-size: 2.5rem; }
+    .product-grid { grid-template-columns: 1fr; }
+                              }
