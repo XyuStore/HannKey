@@ -13,10 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartCheckoutBtn = document.getElementById('cart-checkout-btn');
 
     // === LOGIKA KERANJANG BELANJA (CART) ===
-
-    // Fungsi untuk merender/menampilkan isi keranjang
     const renderCart = () => {
-        cartItemsContainer.innerHTML = ''; // Kosongkan dulu
+        cartItemsContainer.innerHTML = '';
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p class="cart-items-empty">Your cart is empty.</p>';
         } else {
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartSubtotal();
     };
 
-    // Fungsi menambah item ke keranjang
     const addToCart = (product) => {
         const existingItem = cart.find(item => item.id === product.id);
         if (existingItem) {
@@ -52,10 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push({ ...product, quantity: 1 });
         }
         renderCart();
-        cartSidebar.classList.add('open'); // Langsung buka keranjang
+        cartSidebar.classList.add('open');
     };
 
-    // Fungsi mengubah jumlah item
     const updateQuantity = (productId, change) => {
         const item = cart.find(item => item.id === productId);
         if (item) {
@@ -68,30 +64,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Fungsi menghapus item dari keranjang
     const removeFromCart = (productId) => {
         cart = cart.filter(item => item.id !== productId);
         renderCart();
     };
 
-    // Fungsi update jumlah item di ikon navigasi
     const updateCartCount = () => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         cartCount.textContent = totalItems;
     };
 
-    // Fungsi update subtotal di keranjang
     const updateCartSubtotal = () => {
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         cartSubtotal.textContent = formatCurrency(subtotal);
     };
     
-    // Fungsi format mata uang Rupiah
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(amount);
     };
 
-    // Event Listener untuk tombol "Add to Cart"
     addToCartButtons.forEach(button => {
         button.addEventListener('click', () => {
             const card = button.closest('.product-card');
@@ -105,32 +96,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event Listener untuk kontrol di dalam keranjang (quantity & remove)
     cartItemsContainer.addEventListener('click', (e) => {
         const target = e.target;
         const parentControls = target.closest('.quantity-controls');
         const removeButton = target.closest('.remove-item-btn');
-
         if (parentControls) {
             const productId = parentControls.dataset.id;
             if (target.classList.contains('plus')) updateQuantity(productId, 1);
             if (target.classList.contains('minus')) updateQuantity(productId, -1);
         }
-
         if (removeButton) {
             const productId = removeButton.dataset.id;
             removeFromCart(productId);
         }
     });
 
-    // Event Listeners untuk membuka/menutup sidebar keranjang
-    cartToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        cartSidebar.classList.toggle('open');
-    });
+    cartToggle.addEventListener('click', (e) => { e.preventDefault(); cartSidebar.classList.toggle('open'); });
     closeCartBtn.addEventListener('click', () => cartSidebar.classList.remove('open'));
 
-    
     // === LOGIKA MODAL CHECKOUT ===
     const checkoutModal = document.getElementById('checkout-modal');
     const closeModalBtn = checkoutModal.querySelector('.close-button');
@@ -150,14 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
         currentStep = stepNumber;
     };
     
-    // Fungsi untuk mengisi ringkasan pesanan di modal checkout
     const populateOrderSummary = () => {
         const summaryContainer = document.getElementById('final-order-summary');
         const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        // Asumsi ongkos kirim tetap untuk demo
         const shippingCost = 50000; 
         const total = subtotal + shippingCost;
-
         summaryContainer.innerHTML = `
             <h4>Ringkasan:</h4>
             ${cart.map(item => `<p>${item.name} (x${item.quantity}) <span>${formatCurrency(item.price * item.quantity)}</span></p>`).join('')}
@@ -180,17 +160,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeModalBtn.addEventListener('click', () => checkoutModal.style.display = 'none');
     window.addEventListener('click', (e) => { if (e.target == checkoutModal) checkoutModal.style.display = 'none'; });
-
     nextButtons.forEach(button => button.addEventListener('click', () => { if (currentStep < 3) showStep(currentStep + 1); }));
     prevButtons.forEach(button => button.addEventListener('click', () => { if (currentStep > 1) showStep(currentStep - 1); }));
-
     checkoutModal.querySelector('.confirm-btn').addEventListener('click', () => {
         alert('Terima kasih! Proses pembayaran akan disimulasikan di sini.');
         checkoutModal.style.display = 'none';
-        cart = []; // Kosongkan keranjang setelah checkout berhasil
+        cart = [];
         renderCart();
     });
 
-    // Inisialisasi tampilan keranjang saat halaman dimuat
     renderCart();
+
+    // === LOGIKA ANIMASI SCROLL ===
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    });
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 });
