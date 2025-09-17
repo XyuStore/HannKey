@@ -3,83 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HannKey - Jasa Pembuatan Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>Selamat Datang - HannKey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">HannKey</div>
-    <div class="menu-toggle">☰</div>
-    <nav>
-      <ul>
-        <li><a href="#hero">Beranda</a></li>
-        <li><a href="#services">Layanan</a></li>
-        <li><a href="#portfolio">Portofolio</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <h1><span id="typing"></span></h1>
-    <p>Solusi Website Modern & Elegan</p>
-    <a href="#services" class="btn">Lihat Layanan</a>
-  </section>
-
-  <!-- Services -->
-  <section class="services" id="services">
-    <h2 class="section-title" data-aos="fade-up">Layanan Kami</h2>
-    <div class="grid">
-      <div class="card" data-aos="zoom-in">Pembuatan Website Bisnis</div>
-      <div class="card" data-aos="zoom-in">Toko Online & E-commerce</div>
-      <div class="card" data-aos="zoom-in">Landing Page Profesional</div>
+  <!-- Hero / Welcome Section -->
+  <section class="hero">
+    <canvas id="stars"></canvas>
+    <div class="hero-content">
+      <h1><span id="typing"></span></h1>
+      <p>Website Elegan & Modern</p>
+      <div class="btn-group">
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn">WhatsApp</a>
+        <a href="https://instagram.com/username" target="_blank" class="btn">Instagram</a>
+      </div>
     </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="portfolio" id="portfolio">
-    <h2 class="section-title" data-aos="fade-up">Portofolio</h2>
-    <div class="grid">
-      <div class="portfolio-item" data-aos="fade-up"><img src="https://picsum.photos/400/300?1" alt="Project"></div>
-      <div class="portfolio-item" data-aos="fade-up"><img src="https://picsum.photos/400/300?2" alt="Project"></div>
-      <div class="portfolio-item" data-aos="fade-up"><img src="https://picsum.photos/400/300?3" alt="Project"></div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <h2 class="section-title" data-aos="fade-up">Hubungi Kami</h2>
-    <p data-aos="fade-up">Tertarik bekerja sama? Pilih kontak di bawah:</p>
-    <div style="margin:20px 0;">
-      <a href="https://wa.me/6281234567890" target="_blank" class="btn" data-aos="zoom-in">WhatsApp</a>
-      <a href="https://instagram.com/username" target="_blank" class="btn" data-aos="zoom-in">Instagram</a>
-    </div>
-
-    <!-- Form Email -->
-    <form id="contact-form" data-aos="fade-up">
-      <input type="text" id="name" name="user_name" placeholder="Nama Anda" required>
-      <input type="email" id="email" name="user_email" placeholder="Email Anda" required>
-      <textarea id="message" name="message" rows="5" placeholder="Pesan Anda" required></textarea>
-      <button type="submit">Kirim Pesan</button>
-    </form>
-    <p id="status-message" style="margin-top:10px;"></p>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>© 2025 HannKey. All rights reserved.</p>
-    <div>
-      <a href="https://wa.me/6281234567890" target="_blank">📱</a>
-      <a href="https://instagram.com/username" target="_blank">📸</a>
-    </div>
   </footer>
 
-  <!-- Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
