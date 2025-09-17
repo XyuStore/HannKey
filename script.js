@@ -1,11 +1,3 @@
-// === Toggle menu mobile ===
-document.querySelector(".menu-toggle").addEventListener("click", () => {
-  document.querySelector("nav ul").classList.toggle("show");
-});
-
-// === Init AOS ===
-AOS.init({duration: 1000, once: true});
-
 // === Typing animation ===
 const text = "Selamat Datang di HannKey";
 let i = 0;
@@ -18,31 +10,13 @@ function typing() {
 }
 typing();
 
-// === Init EmailJS ===
-(function(){
-  emailjs.init("YOUR_PUBLIC_KEY"); // Ganti dengan Public Key dari EmailJS
-})();
-
-// === Handle form submit ===
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-    .then(() => {
-      document.getElementById("status-message").innerText = "Pesan berhasil dikirim!";
-      this.reset();
-    }, (error) => {
-      document.getElementById("status-message").innerText = "Gagal mengirim pesan!";
-      console.error(error);
-    });
-});
-
-// === Animasi Partikel Bintang + Shooting Star ===
+// === Animasi Bintang + Shooting Star ===
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
-  canvas.height = document.querySelector(".hero").offsetHeight;
+  canvas.height = window.innerHeight;
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
