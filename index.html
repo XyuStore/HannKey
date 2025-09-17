@@ -1,213 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HannKey — Jasa Pembuatan Website Profesional</title>
-  <meta name="description" content="HannKey — Jasa pembuatan website online, desain elegan, responsive, cepat, SEO-friendly." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>H</text></svg>">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HannKey — Jasa Pembuatan Website Profesional, cepat, elegan, dan responsif.">
+  <title>HannKey | Jasa Pembuatan Website</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#">HannKey</a>
-      <nav class="nav" id="mainNav">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button id="hambtn" aria-label="menu" class="hambtn">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">HannKey</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Harga</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1 class="reveal">HannKey</h1>
-          <p class="lead reveal delay-1">Jasa pembuatan website profesional — elegan, cepat, dan responsif. Kami membuat website yang memukau & mengkonversi.</p>
-          <div class="hero-cta reveal delay-2">
-            <a href="#contact" class="btn primary">Minta Penawaran</a>
-            <a href="#portfolio" class="btn ghost">Lihat Portofolio</a>
-          </div>
-        </div>
-        <div class="hero-visual reveal delay-3" aria-hidden="true">
-          <div class="device-mockup">
-            <div class="screen">
-              <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  <linearGradient id="g1" x1="0" x2="1">
-                    <stop offset="0" stop-color="#ff9a9e" />
-                    <stop offset="1" stop-color="#fad0c4" />
-                  </linearGradient>
-                </defs>
-                <rect x="10" y="10" width="580" height="380" rx="14" fill="url(#g1)"></rect>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="accent-bubbles" aria-hidden="true">
-        <span></span><span></span><span></span><span></span>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="section services">
-      <div class="container">
-        <h2 class="section-title">Layanan Kami</h2>
-        <p class="section-sub">Solusi lengkap untuk kebutuhan website Anda.</p>
-
-        <div class="cards">
-          <article class="card">
-            <div class="icon">🌐</div>
-            <h3>Website Bisnis</h3>
-            <p>Desain profesional, SEO-friendly, dan mudah dikelola.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">⚡</div>
-            <h3>Landing Page Cepat</h3>
-            <p>Konversi tinggi, load cepat, cocok untuk kampanye.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🛒</div>
-            <h3>Toko Online</h3>
-            <p>Integrasi pembayaran, manajemen produk, dan order.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🔧</div>
-            <h3>Maintenance & Support</h3>
-            <p>Update, backup, dan optimasi keamanan berkala.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="section portfolio">
-      <div class="container">
-        <h2 class="section-title">Portofolio</h2>
-        <div class="portfolio-grid">
-          <figure class="thumb">
-            <img src="https://picsum.photos/seed/p1/600/400" alt="Project 1" loading="lazy">
-            <figcaption>Project Branding & Website</figcaption>
-          </figure>
-          <figure class="thumb">
-            <img src="https://picsum.photos/seed/p2/600/400" alt="Project 2" loading="lazy">
-            <figcaption>Landing page kampanye</figcaption>
-          </figure>
-          <figure class="thumb">
-            <img src="https://picsum.photos/seed/p3/600/400" alt="Project 3" loading="lazy">
-            <figcaption>E-commerce modern</figcaption>
-          </figure>
-          <figure class="thumb">
-            <img src="https://picsum.photos/seed/p4/600/400" alt="Project 4" loading="lazy">
-            <figcaption>Platform internal</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="section pricing">
-      <div class="container">
-        <h2 class="section-title">Paket Harga</h2>
-        <div class="pricing-grid">
-          <div class="plan">
-            <h3>Starter</h3>
-            <div class="price">Rp 1.500.000</div>
-            <ul>
-              <li>1 Halaman</li>
-              <li>Responsive</li>
-              <li>Form Kontak</li>
-            </ul>
-            <a class="btn primary" href="#contact">Pesan</a>
-          </div>
-          <div class="plan featured">
-            <h3>Bisnis</h3>
-            <div class="price">Rp 4.500.000</div>
-            <ul>
-              <li>Hingga 5 Halaman</li>
-              <li>SEO dasar</li>
-              <li>Integrasi analytics</li>
-            </ul>
-            <a class="btn primary" href="#contact">Pesan</a>
-          </div>
-          <div class="plan">
-            <h3>E-commerce</h3>
-            <div class="price">Rp 8.500.000</div>
-            <ul>
-              <li>Produk tak terbatas</li>
-              <li>Gateway pembayaran</li>
-              <li>Training admin</li>
-            </ul>
-            <a class="btn ghost" href="#contact">Diskusi</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-      <div class="container contact-grid">
-        <div class="contact-card">
-          <h2>Hubungi HannKey</h2>
-          <p>Kirimkan detail proyek Anda, kami akan buatkan estimasi & timeline.</p>
-
-          <form id="contactForm" novalidate>
-            <label>
-              <span>Nama</span>
-              <input type="text" name="name" required placeholder="Nama lengkap">
-            </label>
-
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" required placeholder="email@anda.com">
-            </label>
-
-            <label>
-              <span>Pesan / Brief</span>
-              <textarea name="message" required placeholder="Jelaskan kebutuhan Anda..." rows="5"></textarea>
-            </label>
-
-            <div class="form-actions">
-              <button type="submit" class="btn primary">Kirim</button>
-              <button type="reset" class="btn ghost">Reset</button>
-            </div>
-
-            <div id="formMsg" role="status" aria-live="polite" class="form-msg"></div>
-          </form>
-        </div>
-
-        <aside class="contact-info">
-          <h3>Info Kontak</h3>
-          <p>WhatsApp: <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">+62 812-3456-7890</a></p>
-          <p>Email: <a href="mailto:hello@hannkey.example">hello@hannkey.example</a></p>
-          <div class="small-note">Kami membalas dalam 1x24 jam kerja.</div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>© <span id="year"></span> HannKey — All rights reserved.</div>
-      <div class="socials">
-        <a href="#" aria-label="Twitter">🐦</a>
-        <a href="#" aria-label="LinkedIn">🔗</a>
-        <a href="#" aria-label="GitHub">💻</a>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 data-animate>HannKey</h1>
+      <p data-animate>
+        Jasa pembuatan website profesional — elegan, cepat, dan responsif. 
+        Website modern yang memukau & mengkonversi.
+      </p>
+      <div class="hero-buttons" data-animate>
+        <a href="#contact" class="btn-primary">Minta Penawaran</a>
+        <a href="#portfolio" class="btn-secondary">Lihat Portfolio</a>
       </div>
     </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <h2 data-animate>Layanan Kami</h2>
+    <div class="services-grid">
+      <div class="service-card" data-animate>
+        <h3>🌐 Website Bisnis</h3>
+        <p>Desain profesional, SEO-friendly, dan mudah dikelola.</p>
+      </div>
+      <div class="service-card" data-animate>
+        <h3>⚡ Landing Page Cepat</h3>
+        <p>Konversi tinggi, load cepat, cocok untuk kampanye digital.</p>
+      </div>
+      <div class="service-card" data-animate>
+        <h3>🛒 Toko Online</h3>
+        <p>Integrasi pembayaran, manajemen produk, dan dashboard mudah.</p>
+      </div>
+      <div class="service-card" data-animate>
+        <h3>🔧 Custom Website</h3>
+        <p>Website sesuai kebutuhan unik bisnis Anda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="section">
+    <h2 data-animate>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-animate></div>
+      <div class="portfolio-item" data-animate></div>
+      <div class="portfolio-item" data-animate></div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <h2 data-animate>Paket Harga</h2>
+    <div class="pricing-grid">
+      <div class="price-card" data-animate>
+        <h3>Starter</h3>
+        <p>Mulai dari <strong>Rp 1.5jt</strong></p>
+      </div>
+      <div class="price-card" data-animate>
+        <h3>Business</h3>
+        <p>Mulai dari <strong>Rp 3jt</strong></p>
+      </div>
+      <div class="price-card" data-animate>
+        <h3>Premium</h3>
+        <p>Mulai dari <strong>Rp 5jt</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2 data-animate>Kontak Kami</h2>
+    <form class="contact-form" data-animate>
+      <input type="text" placeholder="Nama Anda" required>
+      <input type="email" placeholder="Email Anda" required>
+      <textarea placeholder="Pesan Anda" required></textarea>
+      <button type="submit" class="btn-primary">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 HannKey. Semua Hak Dilindungi.</p>
   </footer>
 
   <script src="script.js"></script>
