@@ -3,88 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HannKey - Website Elegan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <title>HannKey — Jasa Pembuatan Website</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Background Canvas -->
-  <canvas id="stars"></canvas>
+
+  <!-- Navbar -->
+  <header>
+    <h1>HannKey</h1>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#pricing">Harga</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1><span id="typing"></span></h1>
-      <p>Website Elegan & Modern</p>
-      <div class="btn-group">
-        <a href="https://wa.me/6281234567890" target="_blank" class="btn">WhatsApp</a>
-        <a href="https://instagram.com/username" target="_blank" class="btn">Instagram</a>
-      </div>
-    </div>
+  <section id="home" class="hero">
+    <h2>Selamat Datang di HannKey</h2>
+    <p>Kami membuat website elegan, modern, dan profesional untuk kebutuhan bisnis maupun personal Anda.</p>
+    <a href="#contact" class="btn">Hubungi Kami</a>
   </section>
 
-  <!-- Harga Website -->
-  <section class="pricing">
-    <h2>Harga Website</h2>
-    <div class="pricing-cards">
-      <div class="card">
-        <h3>Paket Basic</h3>
+  <!-- Pricing -->
+  <section id="pricing">
+    <h3 class="section-title">Harga Website</h3>
+    <div class="pricing">
+      <div class="price-card">
+        <h4>Paket Basic</h4>
         <p class="price">Rp 500.000</p>
-        <ul>
-          <li>1 Halaman Landing Page</li>
-          <li>Desain Responsif</li>
-          <li>Gratis Domain 1 Tahun</li>
-        </ul>
+        <p>Landing page sederhana, responsif, cocok untuk personal.</p>
       </div>
-      <div class="card popular">
-        <h3>Paket Pro</h3>
+      <div class="price-card">
+        <h4>Paket Bisnis</h4>
         <p class="price">Rp 1.500.000</p>
-        <ul>
-          <li>Website Bisnis (3-5 Halaman)</li>
-          <li>SEO Friendly</li>
-          <li>Integrasi WhatsApp</li>
-          <li>Gratis Domain & Hosting 1 Tahun</li>
-        </ul>
+        <p>Website bisnis profesional + SEO dasar + 3 halaman.</p>
       </div>
-      <div class="card">
-        <h3>Paket Premium</h3>
-        <p class="price">Rp 3.500.000</p>
-        <ul>
-          <li>Website Custom</li>
-          <li>Fitur Toko Online</li>
-          <li>Integrasi Payment Gateway</li>
-          <li>Support & Maintenance</li>
-        </ul>
+      <div class="price-card">
+        <h4>Paket Premium</h4>
+        <p class="price">Rp 3.000.000</p>
+        <p>Toko online lengkap + integrasi pembayaran + 5 halaman.</p>
+      </div>
+      <div class="price-card">
+        <h4>Paket Custom</h4>
+        <p class="price">Rp 5.000.000+</p>
+        <p>Custom web apps sesuai kebutuhan Anda.</p>
       </div>
     </div>
   </section>
 
-  <!-- Portofolio -->
-  <section class="portfolio">
-    <h2>Portofolio Kami</h2>
-    <div class="portfolio-grid">
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h3 class="section-title">Portfolio Kami</h3>
+    <div class="portfolio">
       <div class="portfolio-item">
-        <img src="https://picsum.photos/400/250?random=1" alt="Web Project 1">
-        <p>Website Bisnis UMKM</p>
+        <img src="https://picsum.photos/600/400?random=1" alt="Portfolio 1">
       </div>
       <div class="portfolio-item">
-        <img src="https://picsum.photos/400/250?random=2" alt="Web Project 2">
-        <p>Landing Page Produk</p>
+        <img src="https://picsum.photos/600/400?random=2" alt="Portfolio 2">
       </div>
       <div class="portfolio-item">
-        <img src="https://picsum.photos/400/250?random=3" alt="Web Project 3">
-        <p>Toko Online Fashion</p>
+        <img src="https://picsum.photos/600/400?random=3" alt="Portfolio 3">
       </div>
-      <div class="portfolio-item">
-        <img src="https://picsum.photos/400/250?random=4" alt="Web Project 4">
-        <p>Aplikasi Web Custom</p>
-      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h3 class="section-title">Tentang Saya</h3>
+    <div class="about">
+      <p>Saya HannKey, seorang Web Developer yang fokus pada pembuatan website modern, responsif, dan berkualitas tinggi. Berpengalaman dalam membuat website bisnis, toko online, dan aplikasi berbasis web.</p>
+      <h4>Skill:</h4>
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React & Vue</li>
+        <li>Node.js & PHP</li>
+        <li>UI/UX Design</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h3 class="section-title">Hubungi Kami</h3>
+    <div class="contact">
+      <p>Kirim pesan langsung ke WhatsApp kami:</p>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Nama Anda" required>
+        <input type="email" id="email" placeholder="Email Anda" required>
+        <textarea id="message" placeholder="Pesan Anda" required></textarea>
+        <button type="submit" class="btn">Kirim ke WhatsApp</button>
+      </form>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 HannKey. All rights reserved.</p>
+    <p>&copy; 2025 HannKey. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
