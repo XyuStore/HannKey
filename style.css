@@ -24,12 +24,25 @@ section {
   flex-direction: column; padding: 100px 20px;
 }
 
-/* Hero dengan animasi gradient */
+/* Hero dengan gradient + canvas bintang */
 .hero {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, #ff4d6d, #ff9a8b, #6a11cb, #2575fc);
   background-size: 300% 300%;
   animation: gradientBG 10s ease infinite;
-  color: white; text-align: center;
+  color: white; 
+  text-align: center;
+}
+.hero #stars {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
 }
 .hero h1 {font-size: 48px; margin-bottom: 20px;}
 .hero p {font-size: 20px; margin-bottom: 30px;}
