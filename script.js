@@ -1,16 +1,37 @@
-// Navbar toggle
-function toggleMenu() {
-  document.querySelector(".nav-links").classList.toggle("active");
+// Toggle menu mobile
+document.querySelector(".menu-toggle").addEventListener("click", () => {
+  document.querySelector("nav ul").classList.toggle("show");
+});
+
+// Init AOS
+AOS.init({duration: 1000, once: true});
+
+// Typing animation
+const text = "Selamat Datang di HannKey";
+let i = 0;
+function typing() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 100);
+  }
 }
+typing();
 
-// Scroll animation
-const elements = document.querySelectorAll("[data-animate]");
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-    }
-  });
-}, { threshold: 0.2 });
+// Init EmailJS
+(function(){
+  emailjs.init("YOUR_PUBLIC_KEY"); // Ganti dengan Public Key dari EmailJS
+})();
 
-elements.forEach(el => observer.observe(el));
+// Handle form submit
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+    .then(() => {
+      document.getElementById("status-message").innerText = "Pesan berhasil dikirim!";
+      this.reset();
+    }, (error) => {
+      document.getElementById("status-message").innerText = "Gagal mengirim pesan!";
+      console.error(error);
+    });
+});
